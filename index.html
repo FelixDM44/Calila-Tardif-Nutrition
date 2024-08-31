@@ -11,65 +11,134 @@
             padding: 0;
             color: #333;
             background-color: #F5F5F5;
-            padding-bottom: 60px;
+            padding-bottom: 30px;
         }
         header {
             background-color: #274E13; /* Warm forest green */
             color: white;
             text-align: center;
             padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px; /*space between image and text */
+            position: relative;
         }
-        header img {
-            max-width: 50%;
+        .head-img-left {
+            position: absolute;
+            top: -20px;
+            left: -50px;
+            width: 26%; /* Adjust width as needed */
             height: auto;
-            margin-bottom: 20px; /* Space below the image */
+            border-radius: 40%;
+            /* You might want to add some margin to keep it away from the edges */
+            margin: 0;
+        }
+
+        .head-img-right {
+            position: absolute;
+            top: -20px;
+            right: -50px;
+            width: 26%; /* Adjust width as needed */
+            height: auto;
+            border-radius: 40%;
+            /* You might want to add some margin to keep it away from the edges */
+            margin: 0;
+        }
+        .header-text {
+            display: flex;
+            flex-direction: column; /* Stack text vertically */
+            align-items: flex-start; /* Align text to the left */
+        }
+        header h1 {
+            color: #FFFFFF; /* Ensure the name text is bright white */
+        }
+        header p {
+            color: #EDEDED; /* Use a lighter shade for "Services en Nutrition" */
+            margin-top: 5px; /* Add some margin to separate the title and subtitle */
+        }
+        .calila {
+            max-width: 10%;
+            height: auto;
+            /*margin-bottom: 15px; /* Space below the image */
+            border-radius: 50%;
         }
         nav {
             display: flex;
             justify-content: center;
             background-color: #3B7A40; /* Slightly lighter forest green */
+            padding: 10px 0;
         }
         nav a {
             color: white;
-            padding: 14px 20px;
+            padding: 10px 15px;
             text-decoration: none;
             font-weight: bold;
             cursor: pointer; /* Add cursor pointer for clickable effect */
+            margin: 0 10px; /* Spacing between links */
+            border-radius: 5px; /* Rounded corners for links */
+            display: flex; /* Flex for emoji alignment */
+            align-items: center; /* Center emoji and text vertically */
+            gap: 5px; /* Space between emoji and text */
+            font-size: 16px; /* Slightly larger font size */
+            transition: background-color 0.3s, transform 0.3s; /* Smooth hover effects */
         }
         nav a:hover {
-            background-color: #4C9C53; /* Even lighter forest green */
+            background-color: #4C9C53;
+            transform: scale(1.05); /* Slight zoom on hover */
         }
         section {
             padding: 20px;
             margin: 20px auto;
             max-width: 800px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             display: none; /* Hide all sections by default */
+            border: 1px solid #E0E0E0; /* Subtle border around sections */
+        }
+        h2 {
+            color: #274E13; /* Dark green for headers */
+            border-bottom: 2px solid #4C9C53; /* Underline effect for headers */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        p {
+            line-height: 1.6; /* Better line spacing for readability */
+            margin-bottom: 15px;
+            color: #555; /* Slightly lighter color for paragraph text */
         }
         footer {
             text-align: center;
-            padding: 4px;
+            padding: 5px;
             background-color: #274E13;
-            color: white;
+            color: #FFFFFF;
             position: fixed;
             width: 100%;
             bottom: 0;
+            font-size: 12px; /* Reduced font size */
+            line-height: 1.2; /* Tighter line height */
+        }
+        footer p {
+            color: white !important; /* Force the footer text to be white */
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="calila.png" alt="Calila Tardif">
+        <img src="calila.jpg" alt="Calila Tardif" class="calila">
         <!-- Replace "path/to/your/image.png" with the path to your PNG file -->
-        <h1>Calila Tardif, Dt.P.</h1>
-        <p>Services en Nutrition</p>
+        <div class="header-text">
+            <h1>Calila Tardif, Dt.P.</h1>
+            <p>Services en Nutrition</p>
+        </div>
+        <img src="leaves.png" class="head-img-left">
+        <img src="leaves.png" class="head-img-right">
     </header>
     <nav>
         <a onclick="showSection('about')">À propos de moi</a>
-        <a onclick="showSection('services')">Mes services</a>
-        <a onclick="showSection('contact')">Contact</a>
+        <a onclick="showSection('services')">📋 Mes services</a>
+        <a onclick="showSection('contact')">✉️ Contact</a>
     </nav>
     <section id="about">
         <h2>À propos de moi</h2>
@@ -82,9 +151,10 @@
     </section>
     <section id="contact">
         <h2>Contact</h2>
-        <p><!-- Coordonnées et formulaire de contact ici --></p>
+        <p>Écrivez-moi un message à calila.tardif.nutrition@gmail.com
+            <!-- Coordonnées et formulaire de contact ici --></p>
     </section>
-    <footer>
+    <footer style="color: white;">
         <p>&copy; 2024 Calila Tardif, Dt.P. Tous droits réservés.</p>
     </footer>
 

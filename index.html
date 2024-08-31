@@ -19,7 +19,7 @@
             padding: 20px 0;
         }
         header img {
-            max-width: 80%;
+            max-width: 50%;
             height: auto;
             margin-bottom: 20px; /* Space below the image */
         }
@@ -33,6 +33,7 @@
             padding: 14px 20px;
             text-decoration: none;
             font-weight: bold;
+            cursor: pointer; /* Add cursor pointer for clickable effect */
         }
         nav a:hover {
             background-color: #4C9C53; /* Even lighter forest green */
@@ -44,6 +45,7 @@
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: none; /* Hide all sections by default */
         }
         footer {
             text-align: center;
@@ -54,22 +56,19 @@
             width: 100%;
             bottom: 0;
         }
-        #services, #contact {
-            display: none;
-        }
     </style>
 </head>
 <body>
     <header>
         <img src="calila.png" alt="Calila Tardif">
-        <!-- Replace "path/to/your/image.jpg" with the path to your image file -->
+        <!-- Replace "path/to/your/image.png" with the path to your PNG file -->
         <h1>Calila Tardif, Dt.P.</h1>
         <p>Services en Nutrition</p>
     </header>
     <nav>
-        <a href="#about">À propos de moi</a>
-        <a href="#services">Mes services</a>
-        <a href="#contact">Contact</a>
+        <a onclick="showSection('about')">À propos de moi</a>
+        <a onclick="showSection('services')">Mes services</a>
+        <a onclick="showSection('contact')">Contact</a>
     </nav>
     <section id="about">
         <h2>À propos de moi</h2>
@@ -87,19 +86,23 @@
     <footer>
         <p>&copy; 2024 Calila Tardif, Dt.P. Tous droits réservés.</p>
     </footer>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelector('nav').addEventListener('click', function(e) {
-            if (e.target.tagName === 'A') {
-                e.preventDefault();
-                document.querySelectorAll('section').forEach(function(section) {
-                    section.style.display = 'none';
-                });
-                var target = e.target.getAttribute('href');
-                document.querySelector(target).style.display = 'block';
-            }
+
+    <script>
+        // Function to show the selected section and hide the others
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(function(section) {
+                section.style.display = 'none';
+            });
+
+            // Show the selected section
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        // Initially show the "À propos de moi" section when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('about');
         });
-    });
-</script>
+    </script>
 </body>
 </html>

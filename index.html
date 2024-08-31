@@ -54,6 +54,9 @@
             width: 100%;
             bottom: 0;
         }
+        #services, #contact {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -84,5 +87,19 @@
     <footer>
         <p>&copy; 2024 Calila Tardif, Dt.P. Tous droits réservés.</p>
     </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('nav').addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                e.preventDefault();
+                document.querySelectorAll('section').forEach(function(section) {
+                    section.style.display = 'none';
+                });
+                var target = e.target.getAttribute('href');
+                document.querySelector(target).style.display = 'block';
+            }
+        });
+    });
+</script>
 </body>
 </html>
